@@ -29,12 +29,13 @@ class BusinessContact(BaseContact):
     def name_length(self):
         return len(self.imie) + len(self.nazwisko) + 1
 
-person = BusinessContact(imie=fake.name(),nazwisko=fake.name(),)
-
     def create_contacts(contact_type,x):
-        if contact_type = 'BusinessContact'
+        contact_type=input("Wprowadź typ wizytówki (BusinessContact/BaseContact)")
+        x=input("Podaj ile wizytówek potrzebujesz")
+        if contact_type = 'BusinessContact':
+            for i in range(x):
 
-        elif contact_type = ''
+        elif contact_type = 'BaseContact'
 
 
 
