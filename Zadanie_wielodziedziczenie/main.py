@@ -33,3 +33,11 @@ lista.append(serial)
 print(film)
 lista.append(film)
 print(lista)
+
+def get_movies():
+    for i in lista:
+        movies=[]
+        if i==lista[Film]:
+            movies.append(i)
+    return movies
+print(get_movies())
