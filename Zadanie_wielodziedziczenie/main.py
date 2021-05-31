@@ -1,4 +1,7 @@
-lista=[]
+from typing import List, Any
+
+lista = []
+
 class Film():
     def __init__(self, tytul, rok_wydania, gatunek, liczba_odtworzen):
         self.tytul = tytul
@@ -12,8 +15,6 @@ class Film():
     def __str__(self):
         return f'{self.tytul} ({self.rok_wydania})'
 
-    def dodawanie_do_listy(self):
-        return lista.append()
 
 class Serial(Film):
     def __init__(self, numer_odcinka, numer_sezonu, *args, **kwargs):
@@ -34,10 +35,21 @@ print(film)
 lista.append(film)
 print(lista)
 
+series = []
+def get_series():
+    for i in lista:
+        if isinstance(i, Serial):
+            series.append(i)
+    return series
+print(get_series())
+
+movies=[]
 def get_movies():
     for i in lista:
-        movies=[]
-        if i==lista[Film]:
+        if isinstance(i, Film):
             movies.append(i)
+    for j in series:
+        if j in movies:
+            movies.remove(j)
     return movies
 print(get_movies())

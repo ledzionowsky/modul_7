@@ -46,10 +46,9 @@ def create_contacts():
     elif contact_type == 2:
         for i in range(x):
             contact = BusinessContact(imie=fake.first_name(), nazwisko=fake.last_name(), telefon=fake.phone_number(),
-                                      email=fake.email(),
-                                      stanowisko=fake.job(), nazwa_firmy=fake.company(), telefon_s=fake.phone_number())
+                                      email=fake.email(), stanowisko=fake.job(), nazwa_firmy=fake.company(),
+                                      telefon_s=fake.phone_number())
             print(contact)
     return contact_type, x
-
 
 create_contacts()
