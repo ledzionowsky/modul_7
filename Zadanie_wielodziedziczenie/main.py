@@ -1,3 +1,4 @@
+import random
 from typing import List, Any
 
 lista = []
@@ -28,12 +29,17 @@ class Serial(Film):
 
 serial = Serial(tytul="Dexter", rok_wydania="2006", gatunek="kryminał", liczba_odtworzen=122, numer_sezonu=2,
                 numer_odcinka=3)
-film = Film(tytul="Shawshank redemption", rok_wydania="1997", gatunek="Dramat", liczba_odtworzen=128882)
-print(serial)
 lista.append(serial)
-print(film)
+
+serial2 = Serial(tytul="Breaking Bad", rok_wydania="2010", gatunek="dramat", liczba_odtworzen=12314343, numer_sezonu=4,numer_odcinka=10)
+lista.append(serial2)
+
+film = Film(tytul="Shawshank redemption", rok_wydania="1997", gatunek="Dramat", liczba_odtworzen=128882)
 lista.append(film)
-print(lista)
+
+film2 = Film(tytul="Batman", rok_wydania="2006", gatunek="sci-fi", liczba_odtworzen=34521)
+lista.append(film2)
+
 
 series = []
 def get_series():
@@ -41,15 +47,45 @@ def get_series():
         if isinstance(i, Serial):
             series.append(i)
     return series
-print(get_series())
+
 
 movies=[]
 def get_movies():
     for i in lista:
-        if isinstance(i, Film):
+        if not isinstance(i, Serial):
             movies.append(i)
-    for j in series:
-        if j in movies:
-            movies.remove(j)
+
     return movies
-print(get_movies())
+
+def print_list(lista):
+    for i in lista:
+        print(i)
+
+lista.sort(key=lambda x: x.tytul)
+
+def search():
+    input_title = str(input("podaj tytuł: "))
+    for x in lista:
+        if x.tytul==input_title:
+            print(x.tytul, x.rok_wydania, x.gatunek, x.liczba_odtworzen)
+
+def generate_views():
+    a = random.choice(lista)
+    a.liczba_odtworzen = random.randrange(1,100)
+    print(a, a.liczba_odtworzen)
+
+def top_titles():
+    i = int(input("Podaj ile najpopularniejszych tytułów chcesz poznać: "))
+    lista.sort(key=lambda x: x.liczba_odtworzen)
+    print (lista[:i])
+
+#print_list(lista)
+#print()
+#print_list(get_series())
+#print()
+#print_list(get_movies())
+#print()
+#search()
+#print()
+#generate_views()
+top_titles()
