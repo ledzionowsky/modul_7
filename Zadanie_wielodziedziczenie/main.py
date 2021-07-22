@@ -74,10 +74,14 @@ def generate_views():
     a.liczba_odtworzen = random.randrange(1,100)
     print(a, a.liczba_odtworzen)
 
+def generate_viewsx10():
+    for i in range(10):
+        generate_views()
+
 def top_titles():
     i = int(input("Podaj ile najpopularniejszych tytułów chcesz poznać: "))
     lista.sort(key=lambda x: x.liczba_odtworzen)
-    print (lista[:i])
+    print_list(lista[:i])
 
 #print_list(lista)
 #print()
@@ -88,4 +92,5 @@ def top_titles():
 #search()
 #print()
 #generate_views()
-top_titles()
+#top_titles()
+#generate_viewsx10()
